@@ -18,18 +18,16 @@ class Knucklejoe {
         sprite.size = CGSize(width: 700, height: 700)
         sprite.position = CGPoint(x: 125, y: -350)
         phys =
-            SKPhysicsBody( rectangleOf: punchSprite.size, center: punchSprite.anchorPoint)
-        
+            SKPhysicsBody( rectangleOf: CGSize(width: 200, height: 50), center: punchSprite.anchorPoint)
+        phys?.affectedByGravity = false
+        phys?.isDynamic = false
         phys?.mass = 10
-        punchSprite.physicsBody = phys
+        sprite.physicsBody = phys
     }
     
     
     
     
-    func swapSprite(){
-        sprite.texture = SKTexture(imageNamed: "punch")
-        sprite.texture = SKTexture(imageNamed: "knuckelejoeImage")
-    }
+ 
     
 }

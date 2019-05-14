@@ -24,6 +24,9 @@ class Apple {
             SKPhysicsBody( rectangleOf: appleSprite.size, center: appleSprite.anchorPoint)
         phys?.affectedByGravity = true
         phys?.mass = 5
+        phys?.categoryBitMask = 1
+        phys?.collisionBitMask = 1
+        phys?.contactTestBitMask = 1
         appleSprite.physicsBody = phys
     }
 

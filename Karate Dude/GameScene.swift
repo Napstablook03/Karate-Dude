@@ -17,6 +17,8 @@ class GameScene: SKScene {
     var ground = Realground()
     let punchTex = SKTexture(imageNamed: "punch")
     var timer = 20
+    var counter = 0
+    var phys: SKPhysicsBody?
     
     override func didMove(to view: SKView) {
         
@@ -25,7 +27,7 @@ class GameScene: SKScene {
         self.addChild(apple.appleSprite)
         self.addChild(ground.groundSprite)
     }
-    
+     
     
     
     func touchDown(atPoint pos : CGPoint) {
@@ -72,9 +74,15 @@ class GameScene: SKScene {
             
             if knucklejoe.sprite.texture != punchTex {
                 knucklejoe.sprite.texture = punchTex
+                knucklejoe.phys?.categoryBitMask = 1
+                knucklejoe.phys?.collisionBitMask = 1
+                knucklejoe.phys?.contactTestBitMask = 1
             }
             if timer == 1 {
                 knucklejoe.sprite.texture = SKTexture(imageNamed: "knucklejoeImage")
+                knucklejoe.phys?.categoryBitMask = 2
+                knucklejoe.phys?.collisionBitMask = 2
+                knucklejoe.phys?.contactTestBitMask = 2
             }
             timer -= 1
             
