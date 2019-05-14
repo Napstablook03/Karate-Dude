@@ -17,6 +17,10 @@
 		4C75C7B7225FDAF300727FFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C75C7B5225FDAF300727FFD /* LaunchScreen.storyboard */; };
 		4C75C7C2225FDAF300727FFD /* Karate_DudeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75C7C1225FDAF300727FFD /* Karate_DudeTests.swift */; };
 		4C75C7CD225FDAF300727FFD /* Karate_DudeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75C7CC225FDAF300727FFD /* Karate_DudeUITests.swift */; };
+		4C75C7DB225FDCE400727FFD /* Karatedude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75C7DA225FDCE400727FFD /* Karatedude.swift */; };
+		4C75E8D6227A289600B19E63 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75E8D5227A289600B19E63 /* Floor.swift */; };
+		4CA534CE22839B4D00A5ADDC /* Realground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA534CD22839B4D00A5ADDC /* Realground.swift */; };
+		4CB38CD3227A24EC00D892B4 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB38CD2227A24EC00D892B4 /* Apple.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		4C75C7C8225FDAF300727FFD /* Karate DudeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Karate DudeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C75C7CC225FDAF300727FFD /* Karate_DudeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karate_DudeUITests.swift; sourceTree = "<group>"; };
 		4C75C7CE225FDAF300727FFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C75C7DA225FDCE400727FFD /* Karatedude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Karatedude.swift; sourceTree = "<group>"; };
+		4C75E8D5227A289600B19E63 /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
+		4CA534CD22839B4D00A5ADDC /* Realground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realground.swift; sourceTree = "<group>"; };
+		4CB38CD2227A24EC00D892B4 /* Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,10 @@
 				4C75C7A8225FDAF200727FFD /* GameScene.sks */,
 				4C75C7AA225FDAF200727FFD /* Actions.sks */,
 				4C75C7AC225FDAF200727FFD /* GameScene.swift */,
+				4CA534CD22839B4D00A5ADDC /* Realground.swift */,
+				4C75C7DA225FDCE400727FFD /* Karatedude.swift */,
+				4CB38CD2227A24EC00D892B4 /* Apple.swift */,
+				4C75E8D5227A289600B19E63 /* Floor.swift */,
 				4C75C7AE225FDAF200727FFD /* GameViewController.swift */,
 				4C75C7B0225FDAF200727FFD /* Main.storyboard */,
 				4C75C7B3225FDAF300727FFD /* Assets.xcassets */,
@@ -267,9 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C75E8D6227A289600B19E63 /* Floor.swift in Sources */,
 				4C75C7AD225FDAF200727FFD /* GameScene.swift in Sources */,
+				4CA534CE22839B4D00A5ADDC /* Realground.swift in Sources */,
+				4C75C7DB225FDCE400727FFD /* Karatedude.swift in Sources */,
 				4C75C7AF225FDAF200727FFD /* GameViewController.swift in Sources */,
 				4C75C7A7225FDAF200727FFD /* AppDelegate.swift in Sources */,
+				4CB38CD3227A24EC00D892B4 /* Apple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
