@@ -24,6 +24,8 @@ class GameViewController: UIViewController {
                 
                 // Present the scene
                 view.presentScene(scene)
+                let gameScene = scene as! GameScene
+                gameScene.game = self
             }
             
             view.ignoresSiblingOrder = true
@@ -33,6 +35,12 @@ class GameViewController: UIViewController {
         }
     }
 
+    func gameOver(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "someViewController")
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     override var shouldAutorotate: Bool {
         return true
     }

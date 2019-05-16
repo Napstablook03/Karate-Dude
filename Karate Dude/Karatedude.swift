@@ -15,10 +15,10 @@ class Knucklejoe {
     
     
     init() {
-        sprite.size = CGSize(width: 700, height: 700)
-        sprite.position = CGPoint(x: 125, y: -350)
+        sprite.size = CGSize(width: 350, height: 350)
+        sprite.position = CGPoint(x: 150, y: -350)
         phys =
-            SKPhysicsBody( rectangleOf: CGSize(width: 200, height: 50), center: punchSprite.anchorPoint)
+            SKPhysicsBody( rectangleOf: CGSize(width: 250, height: 50), center: punchSprite.anchorPoint)
         phys?.affectedByGravity = false
         phys?.isDynamic = false
         phys?.mass = 10

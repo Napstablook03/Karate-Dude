@@ -17,21 +17,24 @@ class GameScene: SKScene {
     var ground = Realground()
     let punchTex = SKTexture(imageNamed: "punch")
     var timer = 20
-    var counter = 0
+    var health = 10
+    var points = 0
+    var game : GameViewController?
     var phys: SKPhysicsBody?
     
     override func didMove(to view: SKView) {
         
         self.addChild(floor.floorSprite)
         self.addChild(knucklejoe.sprite)
-        self.addChild(apple.appleSprite)
+        self.addChild(apple.sprite)
         self.addChild(ground.groundSprite)
+        
     }
      
     
     
     func touchDown(atPoint pos : CGPoint) {
-        timer = 5
+        timer = 10
         
     }
     
@@ -60,15 +63,43 @@ class GameScene: SKScene {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
+    func swapObjects(){
+        if Int.random(in: 0 ... 10) > 6  {
+            apple.sprite.texture = apple.gordoImage.texture
+        } else {
+            apple.sprite.texture = apple.appleImage.texture
+        }
+        apple.active = true
+    }
+    
+    
+    
     var nextSpawnTime : Double = -1
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         if currentTime > nextSpawnTime {
             print("new apple")
-            apple.appleSprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            apple.appleSprite.position = CGPoint(x: 0, y: 1000)
+            apple.sprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            apple.sprite.position = CGPoint(x: 0, y: 1000)
+            
+            swapObjects()
             
             nextSpawnTime = currentTime.advanced(by: Double.random(in: 3 ... 5))
+        }
+        if apple.active && ground.phys!.allContactedBodies().contains(apple.phys!){
+            health -= 1
+            points -= 2
+            apple.active = false
+            print(health)
+        }
+        if knucklejoe.phys!.allContactedBodies().contains(apple.phys!){
+            points += 1
+            
+        }
+        if health == 0 {
+            game!.gameOver()
+            health = 0
+            points = 0
         }
         if timer > 0{
             

@@ -21,6 +21,7 @@
 		4C75E8D6227A289600B19E63 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C75E8D5227A289600B19E63 /* Floor.swift */; };
 		4CA534CE22839B4D00A5ADDC /* Realground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA534CD22839B4D00A5ADDC /* Realground.swift */; };
 		4CB38CD3227A24EC00D892B4 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB38CD2227A24EC00D892B4 /* Apple.swift */; };
+		4CDB9F35228CBC2400CD02A7 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB9F34228CBC2400CD02A7 /* Health.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		4C75E8D5227A289600B19E63 /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 		4CA534CD22839B4D00A5ADDC /* Realground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realground.swift; sourceTree = "<group>"; };
 		4CB38CD2227A24EC00D892B4 /* Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
+		4CDB9F34228CBC2400CD02A7 /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				4C75C7A8225FDAF200727FFD /* GameScene.sks */,
 				4C75C7AA225FDAF200727FFD /* Actions.sks */,
 				4C75C7AC225FDAF200727FFD /* GameScene.swift */,
+				4CDB9F34228CBC2400CD02A7 /* Health.swift */,
 				4CA534CD22839B4D00A5ADDC /* Realground.swift */,
 				4C75C7DA225FDCE400727FFD /* Karatedude.swift */,
 				4CB38CD2227A24EC00D892B4 /* Apple.swift */,
@@ -284,6 +287,7 @@
 				4CA534CE22839B4D00A5ADDC /* Realground.swift in Sources */,
 				4C75C7DB225FDCE400727FFD /* Karatedude.swift in Sources */,
 				4C75C7AF225FDAF200727FFD /* GameViewController.swift in Sources */,
+				4CDB9F35228CBC2400CD02A7 /* Health.swift in Sources */,
 				4C75C7A7225FDAF200727FFD /* AppDelegate.swift in Sources */,
 				4CB38CD3227A24EC00D892B4 /* Apple.swift in Sources */,
 			);

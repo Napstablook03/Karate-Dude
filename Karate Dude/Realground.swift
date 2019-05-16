@@ -12,10 +12,22 @@ import SpriteKit
 class Realground {
     var groundSprite = SKSpriteNode(imageNamed: "groundImage")
     var phys : SKPhysicsBody?
+    var health = 10
     
     init() {
         groundSprite.size = CGSize(width: 650, height: 150)
         groundSprite.position = CGPoint(x: 0, y: -600 )
         groundSprite.zPosition = -4
+        
+        phys =
+            SKPhysicsBody( rectangleOf: CGSize(width: 200, height: 50), center: groundSprite.anchorPoint)
+        phys?.affectedByGravity = false
+        phys?.isDynamic = false
+        phys?.mass = 100
+        phys?.categoryBitMask = 1
+        phys?.collisionBitMask = 1
+        phys?.contactTestBitMask = 1
+        groundSprite.physicsBody = phys
+
     }
 }

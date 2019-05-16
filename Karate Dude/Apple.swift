@@ -11,23 +11,29 @@ import SpriteKit
 
 class Apple {
 
-    var appleSprite = SKSpriteNode(imageNamed: "appleSprite")
-
+    var sprite = SKSpriteNode(imageNamed: "appleSprite")
+    var appleImage = SKSpriteNode(imageNamed: "appleSprite")
+    var gordoImage = SKSpriteNode(imageNamed: "gordoImage")
     var phys : SKPhysicsBody?
-    
+    var active = true
     init() {
         
-        appleSprite.size = CGSize(width: 125, height: 125)
-        appleSprite.position = CGPoint(x: 0, y: 1000)
+        sprite.size = CGSize(width: 125, height: 125)
+        sprite.position = CGPoint(x: 0, y: 1000)
         //appleSprite.zPosition = -5
         phys =
-            SKPhysicsBody( rectangleOf: appleSprite.size, center: appleSprite.anchorPoint)
+            SKPhysicsBody( rectangleOf: sprite.size, center: sprite.anchorPoint)
         phys?.affectedByGravity = true
-        phys?.mass = 5
+        phys?.mass = 2
         phys?.categoryBitMask = 1
         phys?.collisionBitMask = 1
         phys?.contactTestBitMask = 1
-        appleSprite.physicsBody = phys
+        sprite.physicsBody = phys
+        
+        
     }
+   
+    
+    
 
 }
