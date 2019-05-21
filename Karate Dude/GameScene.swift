@@ -18,9 +18,13 @@ class GameScene: SKScene {
     let punchTex = SKTexture(imageNamed: "punch")
     var timer = 20
     var health = 10
+    var pointsLabel = SKLabelNode(text: "0")
+    var healthLabel = SKLabelNode(text: "5")
     var points = 0
+    let hurtTex = SKTexture(imageNamed: "dddHurt")
     var game : GameViewController?
     var phys: SKPhysicsBody?
+    var dropSpeed = 0
     
     override func didMove(to view: SKView) {
         
@@ -28,13 +32,25 @@ class GameScene: SKScene {
         self.addChild(knucklejoe.sprite)
         self.addChild(apple.sprite)
         self.addChild(ground.groundSprite)
-        
+        self.addChild(pointsLabel)
+        self.addChild(healthLabel)
+        pointsLabel.position = CGPoint(x: -100, y: 500 )
+        pointsLabel.zPosition = 3
+        pointsLabel.fontColor = UIColor.red
+        pointsLabel.fontSize = CGFloat(100)
+        healthLabel.position = CGPoint(x: -200, y: 450)
+        healthLabel.zPosition = 3
+        healthLabel.fontColor = UIColor.blue
+        healthLabel.fontSize = CGFloat(50)
     }
      
     
     
     func touchDown(atPoint pos : CGPoint) {
+        
+        if timer < -19 {
         timer = 10
+        }
         
     }
     
@@ -64,12 +80,23 @@ class GameScene: SKScene {
     }
     
     func swapObjects(){
-        if Int.random(in: 0 ... 10) > 6  {
+        if Int.random(in: 0 ... 10) > 7  {
             apple.sprite.texture = apple.gordoImage.texture
-        } else {
+        } else  if Int.random(in: 0 ... 10) < 6 {
             apple.sprite.texture = apple.appleImage.texture
+        } else if Int.random(in: 0 ... 10) == 1 {
+            apple.sprite.texture = apple.coolSprite.texture
         }
         apple.active = true
+        dropSpeed -= 50
+    }
+    func hurtDDD(){
+       if apple.sprite.texture == apple.gordoImage.texture && apple.active && ground.phys!.allContactedBodies().contains(apple.phys!) {
+        ground.groundSprite.texture = ground.dddHurt.texture
+       } else {
+        ground.groundSprite.texture = ground.dddNothurt.texture
+        
+        }
     }
     
     
@@ -78,32 +105,69 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         if currentTime > nextSpawnTime {
-            print("new apple")
-            apple.sprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            //print("new apple")
+            //apple.sprite.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             apple.sprite.position = CGPoint(x: 0, y: 1000)
-            
+            apple.sprite.physicsBody?.velocity = CGVector(dx: 0, dy: dropSpeed)
             swapObjects()
             
-            nextSpawnTime = currentTime.advanced(by: Double.random(in: 3 ... 5))
+            nextSpawnTime = currentTime.advanced(by: Double.random(in: 2 ... 3))
         }
-        if apple.active && ground.phys!.allContactedBodies().contains(apple.phys!){
+        //if apple touches the ground
+        if  apple.sprite.texture == apple.appleImage.texture && apple.active && ground.phys!.allContactedBodies().contains(apple.phys!){
             health -= 1
             points -= 2
+            hurtDDD()
             apple.active = false
-            print(health)
+            
+            
         }
+        //if knuckle joe touches apple
         if knucklejoe.phys!.allContactedBodies().contains(apple.phys!){
-            points += 1
-            
+            points += 3
+            apple.active = false
+            print(points)
         }
-        if health == 0 {
+        //if gordo touches Dedede
+        if apple.sprite.texture == apple.gordoImage.texture && apple.active && ground.phys!.allContactedBodies().contains(apple.phys!) {
+            points += 3
+            
+            hurtDDD()
+            
+            apple.active = false
+            
+            print(points)
+        }
+        //if knuckle joe touches gordo
+        if apple.sprite.texture == apple.gordoImage.texture && knucklejoe.phys!.allContactedBodies().contains(apple.phys!){
+            points -= 5
+            health -= 2
+            apple.active = false
+            print(points)
+        }
+        //if knuckle joe touches coolSprite
+        if apple.sprite.texture == apple.coolSprite.texture && knucklejoe.phys!.allContactedBodies().contains(apple.phys!){
+                points += 20
+                health += 2
+                apple.active = false
+                print(points)
+        }
+        
+        //game over
+        if health <= 0 {
             game!.gameOver()
-            health = 0
+            health = 10
             points = 0
-        }
-        if timer > 0{
+            dropSpeed = 0
             
-            if knucklejoe.sprite.texture != punchTex {
+        }
+        pointsLabel.text = String("Score: ") + String(points)
+        healthLabel.text = String("Health:") + String(health)
+        
+        if timer > -20 {
+            
+            //if knucklejoe.sprite.texture != punchTex {
+            if timer > 1 {
                 knucklejoe.sprite.texture = punchTex
                 knucklejoe.phys?.categoryBitMask = 1
                 knucklejoe.phys?.collisionBitMask = 1

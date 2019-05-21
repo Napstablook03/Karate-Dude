@@ -11,6 +11,8 @@ import SpriteKit
 
 class Realground {
     var groundSprite = SKSpriteNode(imageNamed: "groundImage")
+    var dddHurt = SKSpriteNode(imageNamed: "dddHurt")
+    var dddNothurt = SKSpriteNode(imageNamed: "groundImage")
     var phys : SKPhysicsBody?
     var health = 10
     
@@ -20,7 +22,7 @@ class Realground {
         groundSprite.zPosition = -4
         
         phys =
-            SKPhysicsBody( rectangleOf: CGSize(width: 200, height: 50), center: groundSprite.anchorPoint)
+            SKPhysicsBody( rectangleOf: CGSize(width: 600, height: 50), center: groundSprite.anchorPoint)
         phys?.affectedByGravity = false
         phys?.isDynamic = false
         phys?.mass = 100

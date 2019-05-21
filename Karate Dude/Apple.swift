@@ -14,6 +14,7 @@ class Apple {
     var sprite = SKSpriteNode(imageNamed: "appleSprite")
     var appleImage = SKSpriteNode(imageNamed: "appleSprite")
     var gordoImage = SKSpriteNode(imageNamed: "gordoImage")
+    var coolSprite = SKSpriteNode(imageNamed: "bestSprite")
     var phys : SKPhysicsBody?
     var active = true
     init() {

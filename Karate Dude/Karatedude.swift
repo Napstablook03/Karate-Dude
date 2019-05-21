@@ -21,7 +21,7 @@ class Knucklejoe {
             SKPhysicsBody( rectangleOf: CGSize(width: 250, height: 50), center: punchSprite.anchorPoint)
         phys?.affectedByGravity = false
         phys?.isDynamic = false
-        phys?.mass = 10
+        phys?.mass = 20
         sprite.physicsBody = phys
     }
     
